@@ -39,4 +39,6 @@ if [[ ! -r "$log" ]]; then
   exit 2
 fi
 
-echo "OK: vou analisar $log"
+echo "== Requisições por status =="
+awk '{print $9}' "$log" | sort | uniq -c | sort -rn
+
